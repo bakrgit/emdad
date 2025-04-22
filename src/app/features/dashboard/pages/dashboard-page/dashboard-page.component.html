@@ -1,0 +1,30 @@
+<div class="dashboard-container" *transloco="let t">
+  <div class="dashboard-header">
+    <h1 class="dashboard-title">{{ t('dashboard.kpiTitle') }}</h1>
+  </div>
+  
+  <div class="metrics-grid responsive-grid">
+    <div *ngFor="let metric of financialMetrics" class="metric-item">
+      <app-card
+        [title]="metric.title"
+        [year]="metric.year"
+        [value]="metric.value"
+        [valueDescription]="metric.valueDescription || ''"
+        [subValue]="metric.comparisonValue || ''"
+        [percentageChange]="metric.percentageChange || 0"
+        [isPositiveChange]="metric.isPositiveChange || false"
+        [comparisonPeriod]="metric.comparisonText || ''"
+        [showInfo]="metric.showInfo || false"
+        [averageYearsText]="metric.averageYearsText || ''"
+        [isRTL]="isRTL"
+        [increaseText]="metric.increaseText || ''"
+        [decreaseText]="metric.decreaseText || ''"
+        [operationalProfitMargin]="metric.operationalProfitMargin || 0"
+        [operationalProfitMarginChange]="metric.operationalProfitMarginChange || 0"
+        [isOperationalProfitMarginChangePositive]="metric.isOperationalProfitMarginChangePositive || true"
+        [showOperationalProfitMargin]="metric.showOperationalProfitMargin || false"
+        [operationalChangeText]="metric.operationalChangeText || 'زادت بنسبة'">
+      </app-card>
+    </div>
+  </div>
+</div> 

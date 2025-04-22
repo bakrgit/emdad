@@ -1,0 +1,92 @@
+<div class="card" [ngClass]="{'rtl': isRTL}">
+  <div class="card-shape">
+    <img src="assets/Images/Card-Shape.jpeg" alt="">
+  </div>
+  <div class="card-header">
+    <div class="title-container">
+      <div class="title-row">
+        <h3 class="card-title">{{ title }}</h3>
+        <span class="year">{{ year }}</span>
+      </div>
+    </div>
+    <div class="info-icon" *ngIf="showInfo">
+      <img src="assets/Icons/Card-Info-Icon.svg" alt="">
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="value-container ">
+      <!-- Special case for sales scope cards -->
+      <ng-container *ngIf="isSalesScope()">
+        <div class="value-with-icon" *ngIf="hasRiyalSymbol()">
+          <h2 class="value">{{ formatRiyalValue() }}</h2>
+          <img src="assets/Icons/Card-Riyal-Icon.svg" alt="Riyal" class="riyal-icon">
+        </div>
+        <h2 class="value" *ngIf="!hasRiyalSymbol()">{{ value }}</h2>
+      </ng-container>
+      
+      <!-- For all other cards -->
+      <div class="value-row" *ngIf="!isSalesScope()">
+        <div class="value-with-icon" *ngIf="hasRiyalSymbol()">
+          <h2 class="value">{{ formatRiyalValue() }}</h2>
+          <img src="assets/Icons/Card-Riyal-Icon.svg" alt="Riyal" class="riyal-icon">
+        </div>
+        <h2 class="value" *ngIf="!hasRiyalSymbol()">{{ value }}</h2>
+        <span class="value-description" *ngIf="valueDescription">{{ valueDescription }}</span>
+      </div>
+    </div>
+    <div class="metrics-container">
+      <div class="sales-range-container" *ngIf="title.includes('نطاق المبيعات') || title.includes('Sales Scope')">
+        <div class="sales-range-tag">
+          <span class="range-value">{{ isSalesScope() ? formatSubValueForSalesRange() : subValue }}</span>
+        </div>
+        <span class="sales-range-label">{{ comparisonPeriod }}</span>
+      </div>
+      
+      <div class="change-container" *ngIf="percentageChange !== 0 && !title.includes('نطاق المبيعات') && !title.includes('Sales Scope') && !showOperationalProfitMargin">
+        <div class="tag-with-label">
+          <div [ngClass]="{'positive-tag': isPositiveChange, 'negative-tag': !isPositiveChange}">
+            <span class="percentage">{{ percentageChange }}{{ isRTL && !isPositiveChange ? ' ألف' : '' }}%</span>
+            <div class="arrow-icon">
+              <img *ngIf="isPositiveChange" src="assets/Icons/positive-icon.svg" alt="Increase" class="up-arrow">
+              <img *ngIf="!isPositiveChange" src="assets/Icons/negative-icon.svg" alt="Decrease" class="down-arrow">
+            </div>
+          </div>
+          <span class="label-text">{{ isPositiveChange ? increaseText : decreaseText }}</span>
+        </div>
+      </div>
+      
+      <div class="operational-profit-margin-container" *ngIf="showOperationalProfitMargin">
+        <div class="operational-profit-row">
+          <div [ngClass]="{'positive-tag': isOperationalProfitMarginChangePositive, 'negative-tag': !isOperationalProfitMarginChangePositive}">
+            <span class="percentage">{{ operationalProfitMarginChange }}%</span>
+            <div class="arrow-icon">
+              <img *ngIf="isOperationalProfitMarginChangePositive" src="assets/Icons/positive-icon.svg" alt="Increase" class="up-arrow">
+              <img *ngIf="!isOperationalProfitMarginChangePositive" src="assets/Icons/negative-icon.svg" alt="Decrease" class="down-arrow">
+            </div>
+          </div>
+          <span class="profit-label">{{ operationalChangeText }}</span>
+          <div class="operational-margin-tag">
+            <span class="margin-value">{{ operationalProfitMargin }}%</span>
+          </div>
+          <span class="label-text">هامش الربح التشغيلي العام الماضي</span>
+        </div>
+      </div>
+      
+      <div class="zero-percentage-container" *ngIf="percentageChange === 0 && value === '0%'">
+        <div class="zero-percentage-tag">
+          <span class="zero-value">{{ value }}</span>
+        </div>
+        <span class="label-text">{{ comparisonPeriod }}</span>
+      </div>
+      
+      <div class="average-container" *ngIf="averageYearsText">
+        <div class="tag-with-label">
+          <div class="average-tag">
+            <span class="average-value">{{ extractNumericPart(averageYearsText) }}</span>
+          </div>
+          <span class="label-text">{{ extractTextPart(averageYearsText) }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

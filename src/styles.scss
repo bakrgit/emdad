@@ -1,1 +1,244 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Loading Arabic font */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+/* Loading Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+  /* Light theme (default) */
+  --primary-color: #0056b3;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  
+  --text-color: #333;
+  --bg-color: #E0F2FE;
+  --card-bg-color: #ffffff;
+  --border-color: #ddd;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --icon-color: #555;
+  --header-bg-color: #ffffff;
+  --navbar-bg-color: #E0F2FE;
+  --sidebar-bg-color: #ffffff;
+  --main-content-bg-color: #E0F2FE;
+  --sidebar-active-bg-color: #f0f7ff;
+  --sidebar-active-color: #4169e1;
+  --sidebar-hover-bg-color: #f5f5f5;
+  --sidebar-text-color: #666;
+  
+  /* Font variable */
+  --font-family: 'Tajawal', sans-serif;
+  --font-family-roboto: 'Roboto', sans-serif;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --primary-color: #3b82f6;
+  --secondary-color: #9ca3af;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --info-color: #06b6d4;
+  --light-color: #475569;
+  --dark-color: #000;
+  
+  --text-color: #ffffff;
+  --bg-color: #0f172a;
+  --card-bg-color: #111827;
+  --border-color: #334155;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --icon-color: #cbd5e1;
+  --header-bg-color: #111827;
+  --navbar-bg-color: #111827;
+  --sidebar-bg-color: #0f172a;
+  --main-content-bg-color: #1e293b;
+  --sidebar-active-bg-color: #3b82f6;
+  --sidebar-active-color: #ffffff;
+  --sidebar-hover-bg-color: #334155;
+  --sidebar-text-color: #e2e8f0;
+}
+
+/* Apply font family to all HTML elements */
+html, body, input, button, select, textarea, div, span, p, h1, h2, h3, h4, h5, h6, a {
+  font-family: var(--font-family) !important;
+}
+
+/* RTL Support */
+html[dir='rtl'] {
+  .text-right {
+    text-align: left !important;
+  }
+  
+  .text-left {
+    text-align: right !important;
+  }
+  
+  .ml-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+  
+  .mr-auto {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+  }
+  
+  .float-right {
+    float: left !important;
+  }
+  
+  .float-left {
+    float: right !important;
+  }
+  
+  .pr-1, .pr-2, .pr-3, .pr-4, .pr-5 {
+    padding-right: 0 !important;
+    padding-left: 0.25rem !important;
+  }
+  
+  .pl-1, .pl-2, .pl-3, .pl-4, .pl-5 {
+    padding-left: 0 !important;
+    padding-right: 0.25rem !important;
+  }
+}
+
+/* Enhanced RTL support for layout switching */
+html[dir='rtl'] {
+  body {
+    text-align: right;
+  }
+
+  .navbar .navbar-left {
+    order: 3;
+  }
+
+  .navbar .navbar-right {
+    order: 1;
+  }
+
+  .navbar .navbar-center {
+    order: 2;
+  }
+}
+
+html[dir='ltr'] {
+  body {
+    text-align: left;
+  }
+
+  .navbar .navbar-left {
+    order: 1;
+  }
+
+  .navbar .navbar-right {
+    order: 3;
+  }
+
+  .navbar .navbar-center {
+    order: 2;
+  }
+}
+
+/* Language-specific styling */
+body.lang-ar {
+  direction: rtl;
+  text-align: right;
+  
+  .navbar-container {
+    flex-direction: row-reverse;
+  }
+}
+
+body.lang-en {
+  direction: ltr;
+  text-align: left;
+  
+  .navbar-container {
+    flex-direction: row;
+  }
+}
+
+/* Language switch helper class for triggering reflow */
+.language-switch {
+  transition: none !important;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+/* Theme transition */
+.theme-transition {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Card styling with theme support */
+.card {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+/* Button styling with theme support */
+.btn {
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Theme toggle button styling */
+.theme-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  background-color: transparent;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Roboto font class for specific elements */
+.roboto-font,
+.roboto-font * {
+  font-family: var(--font-family-roboto) !important;
+}

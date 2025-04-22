@@ -1,0 +1,68 @@
+{
+  "common": {
+    "companyName": "Emdad",
+    "dashboard": "Dashboard",
+    "search": "Search",
+    "notifications": "Notifications",
+    "settings": "Settings",
+    "help": "Help",
+    "logout": "Logout",
+    "profile": "Profile",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "switchToDark": "Switch to dark mode",
+    "switchToLight": "Switch to light mode",
+    "darkMode": "Dark mode",
+    "lightMode": "Light mode",
+    "themeToggle": "Theme Toggle",
+    "changeLanguage": "Change Language"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "kpiTitle": "Income Statement Key Performance Indicators for 2024",
+    "metrics": {
+      "orders": "Orders",
+      "customers": "Customers",
+      "revenue": "Revenue",
+      "products": "Products"
+    },
+    "welcome": "Welcome to Emdad Management System",
+    "cards": {
+      "salesGrowth": "Sales Growth",
+      "salesScope": "Sales Scope",
+      "operatingMargin": "Operating Profit Margin",
+      "netMargin": "Net Income Margin",
+      "totalEquity": "Total Equity",
+      "debtToEquity": "Debt to Equity Ratio",
+      "accountsReceivable": "Accounts Receivable",
+      "accountsPayable": "Accounts Payable",
+      "cashPosition": "Cash Position",
+      "cashFlow": "Cash Flow from Operations",
+      "increased": "increased by",
+      "decreased": "decreased by",
+      "previousYear": "Previous year growth",
+      "average3Years": "Average 3 years",
+      "currentGrowth": "Current growth rate",
+      "fromRevenue": "from revenue",
+      "lastYear": "Last year",
+      "lastYearSalesScope": "Last year sales scope",
+      "salesGrowth2022": "Sales growth - 2022"
+    }
+  },
+  "sidebar": {
+    "financialStatements": "Financial Statements",
+    "indicatorsManagement": "Indicators Management",
+    "commercialRegister": "Commercial Register Data",
+    "help": "Help",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "orders": "Orders",
+    "products": "Products",
+    "customers": "Customers",
+    "settings": "Settings"
+  }
+} 

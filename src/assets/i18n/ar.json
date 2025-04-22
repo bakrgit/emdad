@@ -1,0 +1,68 @@
+{
+  "common": {
+    "companyName": "إمداد",
+    "dashboard": "لوحة التحكم",
+    "search": "بحث",
+    "notifications": "إشعارات",
+    "settings": "الإعدادات",
+    "help": "مساعدة",
+    "logout": "تسجيل خروج",
+    "profile": "الملف الشخصي",
+    "view": "عرض",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "switchToDark": "التبديل إلى الوضع الداكن",
+    "switchToLight": "التبديل إلى الوضع الفاتح",
+    "darkMode": "الوضع الداكن",
+    "lightMode": "الوضع الفاتح",
+    "themeToggle": "تبديل المظهر",
+    "changeLanguage": "تغيير اللغة"
+  },
+  "dashboard": {
+    "title": "لوحة القيادة",
+    "kpiTitle": "مؤشرات الأداء الرئيسية لقائمة الدخل لعام 2024",
+    "metrics": {
+      "orders": "الطلبات",
+      "customers": "العملاء",
+      "revenue": "الإيرادات",
+      "products": "المنتجات"
+    },
+    "welcome": "مرحبًا بك في نظام إدارة إمداد",
+    "cards": {
+      "salesGrowth": "نمو المبيعات",
+      "salesScope": "نطاق المبيعات",
+      "operatingMargin": "هامش الربح التشغيلي",
+      "netMargin": "هامش صافي الدخل",
+      "totalEquity": "إجمالي حقوق الملكية",
+      "debtToEquity": "نسبة الدين إلى حقوق الملكية %",
+      "accountsReceivable": "الحسابات المدينة / الذمم المدينة",
+      "accountsPayable": "الحسابات الدائنة / الذمم الدائنة",
+      "cashPosition": "المركز النقدي",
+      "cashFlow": "التدفقات النقدية من الأنشطة التشغيلية",
+      "increased": "زادت بنسبة",
+      "decreased": "انخفضت بنسبة",
+      "previousYear": "نمو السنة السابقة",
+      "average3Years": "متوسط 3 سنين",
+      "currentGrowth": "نسبة نمو المبيعات الحالية",
+      "fromRevenue": "من العائدات",
+      "lastYear": "العام الماضي",
+      "lastYearSalesScope": "نطاق المبيعات العام الماضي",
+      "salesGrowth2022": "نمو المبيعات - 2022"
+    }
+  },
+  "sidebar": {
+    "financialStatements": "القوائم المالية",
+    "indicatorsManagement": "إدارة المؤشرات",
+    "commercialRegister": "بيانات السجل التجاري",
+    "help": "مساعدة",
+    "settings": "الإعدادات",
+    "logout": "تسجيل الخروج"
+  },
+  "menu": {
+    "dashboard": "لوحة القيادة",
+    "orders": "الطلبات",
+    "products": "المنتجات",
+    "customers": "العملاء",
+    "settings": "الإعدادات"
+  }
+} 

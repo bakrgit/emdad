@@ -1,0 +1,90 @@
+<nav class="navbar" [ngClass]="{'mobile-menu-open': mobileMenuOpen}" *transloco="let t">
+  <div class="navbar-container">
+    <div class="navbar-left" [ngStyle]="{
+      'margin-right': document.dir === 'rtl' ? (sidebarOpen ? '100px' : '50px') : '0', 
+      'margin-left': document.dir === 'ltr' ? (sidebarOpen ? '100px' : '50px') : '0'
+    }">
+      <div class="toggle-sidebar" (click)="toggleSidebarMenu()">
+        <img *ngIf="document.dir === 'rtl'" src="assets/Icons/Right-Arrow-Icon.svg" alt="Toggle sidebar" />
+        <img *ngIf="document.dir === 'ltr'" src="assets/Icons/Left-Arrow-Icon.svg" alt="Toggle sidebar" />
+      </div>
+    </div>
+    
+    <div class="navbar-center">
+      <div class="company-info">
+        <span class="company-name" [ngClass]="{'border-right': document.dir === 'rtl', 'border-left': document.dir === 'ltr'}">شركة الجوف للتنمية الزراعية</span>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu Toggle Button (only visible on mobile/tablet) -->
+    <div class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+      <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+    <!-- Regular Desktop Navigation -->
+    <div class="navbar-right">
+      <app-theme-toggle class="theme-toggle-container"></app-theme-toggle>
+      <div class="search-icon">
+        <img src="assets/Icons/Search-Icon.svg" alt="Search" />
+      </div>
+      <div class="notification-icon" (click)="onNotificationClick()">
+        <img src="assets/Icons/Bell-Icon.svg" alt="Notifications" />
+      </div>
+      <div class="language-selector" (click)="onLanguageChange()">
+        <span class="language-text">{{ currentLanguage }}</span>
+        <img src="assets/Icons/Down-Arrow-con.svg" alt="Change language" class="arrow-down" />
+      </div>
+      <div class="logo-container">
+        <img src="assets/Images/Image-Account.png" alt="Logo" class="company-logo" />
+      </div>
+    </div>
+  </div>
+  
+  <!-- Backdrop overlay for mobile menu -->
+  <div class="mobile-menu-backdrop" [ngClass]="{'active': mobileMenuOpen}" (click)="toggleMobileMenu()"></div>
+  
+  <!-- Mobile Menu Panel (only visible when mobileMenuOpen is true) -->
+  <div class="mobile-menu" [ngClass]="{'mobile-menu-open': mobileMenuOpen}" *transloco="let t">
+    <div class="mobile-menu-items">
+      <div class="mobile-menu-item">
+        <app-theme-toggle class="mobile-theme-toggle"></app-theme-toggle>
+        <span class="mobile-item-label">{{ t('common.themeToggle') }}</span>
+      </div>
+      
+      <div class="mobile-menu-item">
+        <div class="mobile-search-icon">
+          <img src="assets/Icons/Search-Icon.svg" alt="Search" />
+        </div>
+        <span class="mobile-item-label">{{ t('common.search') }}</span>
+      </div>
+      
+      <div class="mobile-menu-item" (click)="onNotificationClick()">
+        <div class="mobile-notification-icon">
+          <img src="assets/Icons/Bell-Icon.svg" alt="Notifications" />
+        </div>
+        <span class="mobile-item-label">{{ t('common.notifications') }}</span>
+      </div>
+      
+      <div class="mobile-menu-item" (click)="onLanguageChange()">
+        <div class="mobile-language-selector">
+          <span class="mobile-language-text">{{ currentLanguage }}</span>
+          <img src="assets/Icons/Down-Arrow-con.svg" alt="Change language" class="mobile-arrow-down" />
+        </div>
+        <span class="mobile-item-label">{{ t('common.changeLanguage') }}</span>
+      </div>
+      
+      <div class="mobile-menu-item">
+        <div class="mobile-logo-container">
+          <img src="assets/Images/Image-Account.png" alt="Logo" class="mobile-company-logo" />
+        </div>
+        <span class="mobile-item-label">{{ t('common.profile') }}</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="navbar-border"></div>
+</nav> 

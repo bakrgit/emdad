@@ -1,0 +1,10 @@
+.metrics-grid.responsive-grid {
+  .metric-item {
+    margin-bottom: 0;
+    
+    app-card {
+      display: block;
+      height: 100%;
+    }
+  }
+} 

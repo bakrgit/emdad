@@ -1,0 +1,20 @@
+<div class="app-container" [ngClass]="{'sidebar-collapsed': !isSidebarOpen, 'rtl-layout': isRtlLayout, 'ltr-layout': !isRtlLayout}" *transloco="let t">
+  <app-navbar
+    [companyName]="t('common.companyName')"
+    [logoUrl]="logoUrl"
+    [currentLanguage]="currentLanguage"
+    [sidebarOpen]="isSidebarOpen"
+    (toggleSidebar)="toggleSidebar()"
+    (changeLanguage)="onLanguageChange()"
+    (notification)="onNotification()"
+    (search)="onSearch($event)">
+  </app-navbar>
+  
+  <app-sidebar [isOpen]="isSidebarOpen" [isRtl]="isRtlLayout"></app-sidebar>
+  
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+  
+ 
+</div> 

@@ -1,0 +1,28 @@
+<aside class="sidebar" [ngClass]="{'sidebar-collapsed': !isOpen, 'sidebar-rtl': currentDirection === 'rtl', 'sidebar-ltr': currentDirection === 'ltr'}">
+  <div class="logo-container">
+    <img [src]="logoPath" alt="Emdad Logo" class="logo-img">
+  </div>
+  
+  <div *transloco="let t; loadingTpl: loading">
+    <nav class="sidebar-nav">
+      <ul class="menu-list">
+        <li *ngFor="let item of menuItems; let i = index" 
+            class="menu-item" 
+            [ngClass]="{'active': item.active, 'menu-logout': item.translationKey === 'sidebar.logout'}"
+            (click)="toggleMenuItem(i)">
+          <a [routerLink]="item.route" class="menu-link">
+            <div class="icon-container">
+              <img *ngIf="item.iconPath" [src]="item.iconPath" class="menu-icon-img" alt="menu icon">
+              <i *ngIf="!item.iconPath" class="menu-icon" [ngClass]="item.icon"></i>
+            </div>
+            <span class="menu-label">{{ t(item.translationKey) }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  
+  <ng-template #loading>
+    <div class="loading-translations">Loading...</div>
+  </ng-template>
+</aside> 

@@ -1,0 +1,261 @@
+.sidebar {
+  width: 100px;
+  height: 100vh;
+  background-color: var(--sidebar-bg-color);
+  box-shadow: none;
+  position: fixed;
+  top: 0;
+  z-index: 110;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  
+  &.sidebar-collapsed {
+    width: 50px;
+    
+    .menu-logout {
+      width: 50px !important;
+    }
+    
+    .menu-link {
+      width: 40px !important;
+      height: 40px !important;
+      
+      .menu-label {
+        display: none !important;
+      }
+      
+      .icon-container {
+        margin-bottom: 0 !important;
+      }
+    }
+    
+    .logo-container {
+      .logo-img {
+        max-width: 30px; // Smaller logo when collapsed
+      }
+    }
+  }
+  
+  &.direction-change {
+    transition: none !important;
+  }
+  
+  .logo-container {
+    // padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    // border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    
+    .logo-img {
+      max-width: 50px !important;
+      height: auto;
+
+    }
+  }
+  
+  /* RTL-specific styling */
+  &.sidebar-rtl {
+    right: 0;
+    left: auto;
+    box-shadow: none;
+    // border-left: 1px solid var(--border-color);
+  }
+  
+  /* LTR-specific styling */
+  &.sidebar-ltr {
+    left: 0;
+    right: auto;
+    box-shadow: none;
+    // border-right: 1px solid var(--border-color);
+  }
+  
+  .sidebar-nav {
+    padding: 20px 0;
+    
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      .menu-item {
+        width: 100%;
+        margin-bottom: 8px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        font-weight: 600;
+        &.active {
+          .menu-link {
+            width: 100% !important;
+            background-color: #60A5FA;
+            color: white !important;
+            font-weight: 600;
+            // box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+            border-radius: 4px;
+            padding: 8px 0;
+            
+            .menu-icon, .menu-icon-img {
+              filter: brightness(0) invert(1);
+            }
+            
+            .menu-label {
+              width: 100%;
+              text-align: center;
+              color: white !important;
+            }
+          }
+        }
+        
+        &.menu-logout {
+          margin-top: auto;
+          position: fixed;
+          bottom: 24px;
+          width: 80px;
+          
+          .menu-link {
+            color: #E73C3E;
+          }
+          
+          .icon-container .menu-icon-img {
+            filter: invert(38%) sepia(85%) saturate(2884%) hue-rotate(334deg) brightness(95%) contrast(92%);
+          }
+        }
+        
+        .menu-link {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 8px 0;
+          text-decoration: none;
+          color: #475569;
+          border-radius: 8px;
+          margin: 0;
+          width: 64px;
+          height: 70px;
+          transition: all 0.2s ease;
+          
+          &:hover {
+            // background-color: #F8FAFC;
+            transform: translateY(-1px);
+          }
+          
+          .icon-container {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0px;
+            
+            .menu-icon {
+              font-size: 18px;
+            }
+            
+            .menu-icon-img {
+              width: 20px;
+              height: 20px;
+              object-fit: contain;
+            }
+          }
+          
+          .menu-label {
+            font-size: 10px;
+            white-space: normal;
+            width: 95%;
+            line-height: 1.4;
+            max-height: 30px;
+            min-height: 28px;
+            overflow: hidden;
+            font-weight: 500;
+            margin-top: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-color);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .sidebar {
+  background-color: #1E293B;
+  border-right: 1px solid #334155;
+  
+  .menu-item .menu-link {
+    color: #E2E8F0;
+    
+    &:hover {
+      background-color: #334155;
+    }
+  }
+  
+  &.sidebar-rtl {
+    border-right: none;
+    border-left: 1px solid #334155;
+  }
+}
+
+/* Add more specific selectors that should override any other styles */
+html[dir="rtl"] body .sidebar {
+  border-top-left-radius: 20px !important;
+}
+
+html[dir="ltr"] body .sidebar {
+  border-top-right-radius: 20px !important;
+}
+
+/* Alternative approach using the sidebar-rtl/ltr classes */
+.sidebar.sidebar-rtl {
+  border-top-left-radius: 20px !important;
+}
+
+.sidebar.sidebar-ltr {
+  border-top-right-radius: 20px !important;
+}
+
+/* Ensures proper menu item alignment in different directions */
+html[dir="rtl"] .menu-link {
+  flex-direction: row-reverse;
+  text-align: right;
+  
+  .icon-container {
+    margin-right: 0 !important;
+    margin-left: 12px !important;
+  }
+}
+
+html[dir="ltr"] .menu-link {
+  flex-direction: row;
+  text-align: left;
+  
+  .icon-container {
+    margin-left: 0 !important;
+    margin-right: 12px !important;
+  }
+}
+
+/* Also handle the collapsed sidebar active state */
+.sidebar.sidebar-collapsed .menu-item.active .menu-link {
+  width: 100% !important;
+  
+  .icon-container {
+    margin-bottom: 1px;
+  }
+  
+  .menu-label {
+    margin-top: 1px;
+  }
+} 

@@ -1,0 +1,861 @@
+.card {
+  background-color: var(--card-bg-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: none;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  height: auto;
+  min-height: 200px;
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  
+  &.rtl {
+    direction: rtl;
+    text-align: right;
+    
+    .label-text {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+    
+    .card-shape {
+      top: 0px;
+      left: -20px;
+      right: auto;
+      
+      img {
+        top: 0;
+        left: 0;
+        right: auto;
+        bottom: auto;
+        transform: rotate(340deg); 
+      }
+    }
+    
+    .title-row {
+      flex-direction: row-reverse;
+      
+      .year {
+        margin-left: 0;
+        margin-right: 8px;
+      }
+    }
+    
+    .value-with-icon {
+      flex-direction: row;
+    }
+    
+    .average-with-icon {
+      flex-direction: row;
+    }
+    
+    .tag-with-label {
+      flex-direction: row;
+    }
+    
+    .sales-range-container {
+      flex-direction: row;
+      
+      .sales-range-label {
+        margin-right: 0;
+        margin-left: 8px;
+      }
+    }
+    
+    .zero-percentage-container {
+      flex-direction: row;
+    }
+    
+    .change-container {
+      .positive-tag, .negative-tag {
+        flex-direction: row-reverse;
+        
+        .arrow-icon {
+          margin-right: 0;
+          margin-left: 0;
+        }
+      }
+    }
+    
+    .operational-profit-margin-container {
+      .operational-profit-row {
+        flex-direction: row;
+        
+        .profit-label {
+          margin-left: 8px;
+          margin-right: 8px;
+        }
+        
+        .label-text {
+          margin-left: 8px;
+          margin-right: 0;
+        }
+        
+        .positive-tag, .negative-tag {
+          flex-direction: row-reverse;
+          
+          .arrow-icon {
+            margin-right: 5px;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+    
+    .value-row {
+      flex-direction: row-reverse;
+      
+      .value-description {
+        margin-right: 12px;
+        margin-left: 8px;
+      }
+    }
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  }
+  
+  .card-shape {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.15;
+    
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 180px;
+      height: auto;
+    }
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 5px;
+    position: relative;
+    z-index: 1;
+    
+    .title-container {
+      display: flex;
+      flex-direction: column;
+      
+      .title-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+        .card-title {
+          font-size: 18px !important;
+          font-weight: 600;
+          margin: 0;
+          color: var(--text-color, #333333);
+          letter-spacing: 0;
+        }
+        
+        .year {
+          font-size: 15px;
+          color: var(--text-color, #333333);
+          margin-left: 8px;
+          font-weight: 500;
+        }
+      }
+    }
+    
+    .info-icon {
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -7px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    justify-content: space-between;
+    margin-top: 10px;
+    
+    .value-container {
+      margin-bottom: 15px;
+      position: relative;
+      
+      .value-row {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        .value-description {
+          font-size: 14px;
+          font-weight: 500;
+          color: var(--text-color, #374151);
+          margin-right: 8px;
+          margin-left: 12px;
+          line-height: 1.2;
+          font-family: var(--font-family) !important;
+        }
+      }
+      
+      .value-with-icon {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        
+        .riyal-icon {
+          width: 24px;
+          height: 24px;
+          object-fit: contain;
+          margin-bottom: 4px;
+        }
+        
+        .value {
+          font-size: 26px;
+          font-weight: 700;
+          margin: 0;
+          color: var(--primary-color, #3b5ad3);
+          letter-spacing: 0;
+          line-height: 1.2;
+         
+          // font-family: var(--font-family-roboto) !important;
+        }
+      }
+      
+      .value {
+        font-size: 26px;
+        font-weight: 700;
+        margin: 0;
+        color: var(--primary-color, #3b5ad3);
+        letter-spacing: 0;
+        line-height: 1.2;
+        // font-family: var(--font-family-roboto) !important;
+      }
+      
+      .sub-value {
+        font-size: 14px;
+        color: var(--icon-color, #666666);
+        margin-top: 6px;
+        display: flex;
+        align-items: center;
+        
+        .sub-value-with-icon {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          
+          .riyal-icon-small {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+          }
+        }
+        
+        .sub-value-label {
+          margin-left: 6px;
+          color: var(--text-muted);
+        }
+      }
+    }
+    
+    .metrics-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start !important;
+      gap: 12px;
+      
+      .tag-with-label {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+      }
+      
+      .label-text {
+        font-size: 15px;
+        font-weight:500;
+        color: var(--text-muted);
+        margin-left: 0;
+        margin-right: 8px;
+      }
+      
+      .change-container {
+        display: flex;
+        align-items: center;
+        
+        .positive-tag {
+          margin-right: 5px;
+          margin-left: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgba(0, 153, 130, 0.1);
+          border-radius: 4px;
+          padding-top: 6px;
+          padding-left: 6px;
+          padding-right: 6px;
+          max-height: 25px;
+          
+          
+          .percentage {
+            font-size: 14px;
+            font-weight: 600;
+            color: #009982;
+          }
+          
+          .arrow-icon {
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: -5px;
+            
+            img.up-arrow {
+              width: 15px;
+              height: 14px;
+            }
+          }
+        }
+        
+        .negative-tag {
+          margin-right: 5px;
+          margin-left: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgba(220, 9, 9, 0.1);
+          border-radius: 4px;
+          padding-top: 6px;
+            padding-left: 6px;
+            padding-right: 6px;
+            max-height: 25px;
+          
+          .percentage {
+            font-size: 14px;
+            font-weight: 600;
+            color: #DC0909;
+          }
+          
+          .arrow-icon {
+            width: 16px;
+              height: 16px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-left: 5px;
+              margin-top: -5px;
+            
+            img.down-arrow {
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+      }
+      
+      .sales-range-container {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        
+        .sales-range-tag {
+          margin-right: 5px;
+          margin-left: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color:#D5DEF6 !important;
+          color: #09122A !important;
+          border-radius: 4px;
+          padding-top: 6px;
+          padding-left: 6px;
+          padding-right: 6px;
+          max-height: 30px;
+          
+          .range-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #09122A !important;
+          }
+          
+          * {
+            color: #09122A !important;
+          }
+        }
+        
+        .sales-range-label {
+          font-size: 13px;
+          color: var(--text-muted);
+          margin-right: 8px;
+          margin-left: 0;
+        }
+      }
+      
+      .zero-percentage-container {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        
+        .zero-percentage-tag {
+          margin-right: 5px;
+          margin-left: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #C2CAD6;
+          border-radius: 4px;
+          padding-top: 6px;
+          padding-left: 6px;
+          padding-right: 6px;
+          max-height: 25px;
+          
+          .zero-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted, #000);
+          }
+        }
+      }
+      
+      .average-container {
+        .average-tag {
+          margin-right: 5px;
+          margin-left: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #D5DEF6;
+          border-radius: 4px;
+          padding-top: 6px;
+          padding-left: 6px;
+          padding-right: 6px;
+          max-height: 30px;
+          
+          .average-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted, #2447A8);
+          }
+        }
+      }
+      
+      .operational-profit-margin-container {
+        display: flex;
+        flex-direction: column;
+        
+        .operational-profit-row {
+          display: flex;
+          align-items: center;
+          flex-direction: row-reverse;
+          
+          .profit-label {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-left: 8px;
+            margin-right: 8px;
+          }
+          
+          .label-text {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-left: 0;
+            margin-right: 8px;
+          }
+          
+          .operational-margin-tag {
+            background-color: var(--light-blue-tag, #e7ebfd);
+            border-radius: 4px;
+            padding-top: 6px;
+              padding-left: 6px;
+              padding-right: 6px;
+              border-radius: 4px;
+            align-items: center;
+            
+            .margin-value {
+              font-size: 14px;
+              font-weight: 600;
+              color: var(--primary-color, #3b5ad3);
+            }
+          }
+          
+          .positive-tag, .negative-tag {
+            display: flex;
+            align-items: center;
+            padding-top: 6px;
+            padding-left: 6px;
+            border-radius: 4px;
+            
+            .percentage {
+              font-size: 14px;
+              font-weight: 600;
+              // white-space: nowrap;
+            }
+            
+            .arrow-icon {
+              width: 16px;
+                height: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: -5px;
+              
+              img {
+                width: 14px;
+                height: 14px;
+                object-fit: contain;
+              }
+            }
+          }
+          
+          .positive-tag {
+            background-color: var(--light-green-tag, #e5f7ed);
+            
+            .percentage {
+              color: var(--positive-color, #00a651);
+            }
+          }
+          
+          .negative-tag {
+            background-color: var(--light-red-tag, #fbe7e7);
+            
+            .percentage {
+              color: var(--negative-color, #d32f2f);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media queries for responsive design
+@media screen and (max-width: 768px) {
+  .card {
+    height: 100% !important;
+    padding: 15px;
+    
+    .card-header {
+      .title-container {
+        .title-row {
+          .card-title {
+            font-size: 15px !important;
+          }
+          
+          .year {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+    
+    .card-body {
+      .value-container {
+        margin-bottom: 10px;
+        
+        .value-with-icon {
+          align-items: center;
+          
+          .value {
+            font-size: 22px;
+            line-height: 1.1;
+          }
+          
+          .riyal-icon {
+            width: 20px;
+            height: 20px;
+          }
+        }
+        
+        .value {
+          font-size: 22px;
+          line-height: 1.1;
+        }
+        
+        .value-row {
+          align-items: center;
+          
+          .value-description {
+            line-height: 1.1;
+          }
+        }
+      }
+      
+      .metrics-container {
+        gap: 8px;
+        
+        .tag-with-label {
+          width: 100%;
+          justify-content: flex-start;
+        }
+        
+        .label-text {
+          font-size: 13px;
+        }
+        
+        .positive-tag, .negative-tag {
+          .percentage {
+            font-size: 13px;
+          }
+        }
+        
+        .sales-range-container {
+          width: 100%;
+          justify-content: flex-start;
+          
+          .sales-range-tag {
+            .range-value {
+              font-size: 13px;
+            }
+          }
+          
+          .sales-range-label {
+            font-size: 13px;
+          }
+        }
+        
+        .operational-profit-margin-container {
+          .operational-profit-row {
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 8px;
+            
+            .profit-label, .label-text {
+              font-size: 13px;
+            }
+            
+            .operational-margin-tag {
+              .margin-value {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+        
+        .average-container {
+          width: 100%;
+          
+          .average-tag {
+            .average-value {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .card {
+    height: 100% !important;
+    padding: 12px !important;
+    
+    .card-shape {
+      img {
+        width: 140px;
+      }
+    }
+    
+    .card-header {
+      margin-bottom: 3px;
+      
+      .title-container {
+        .title-row {
+          .card-title {
+            font-size: 14px !important;
+          }
+          
+          .year {
+            font-size: 12px;
+          }
+        }
+      }
+      
+      .info-icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    
+    .card-body {
+      margin-top: 5px;
+      
+      .value-container {
+        margin-bottom: 8px;
+        
+        .value-with-icon {
+          align-items: center;
+          
+          .value {
+            font-size: 20px;
+            line-height: 1;
+          }
+          
+          .riyal-icon {
+            width: 18px;
+            height: 18px;
+            margin-bottom: 2px;
+          }
+        }
+        
+        .value {
+          font-size: 20px;
+          line-height: 1;
+          margin-bottom: 2px;
+        }
+        
+        .value-row {
+          flex-wrap: wrap;
+          
+          .value-description {
+            font-size: 12px;
+            margin-right: 6px;
+            margin-left: 6px;
+            line-height: 1;
+          }
+        }
+      }
+      
+      .metrics-container {
+        gap: 6px;
+        
+        .positive-tag, .negative-tag, .sales-range-tag, .average-tag, .operational-margin-tag, .zero-percentage-tag {
+          padding: 4px 5px;
+          max-height: 22px;
+          
+          .percentage, .range-value, .average-value, .margin-value, .zero-value {
+            font-size: 12px;
+          }
+          
+          .arrow-icon {
+            width: 14px;
+            height: 14px;
+            margin-top: -3px;
+            
+            img {
+              width: 12px;
+              height: 12px;
+            }
+          }
+        }
+        
+        .operational-profit-margin-container {
+          width: 100%;
+          
+          .operational-profit-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+            
+            > div, > span {
+              margin: 2px 0;
+            }
+            
+            .positive-tag, .negative-tag {
+              display: flex;
+              align-items: center;
+              max-width: fit-content;
+              margin-right: 0;
+              
+              .percentage {
+                margin-left: 4px;
+              }
+            }
+            
+            .profit-label {
+              margin-left: 0;
+              margin-right: 0;
+            }
+            
+            .operational-margin-tag {
+              max-width: fit-content;
+            }
+            
+            .label-text {
+              margin-left: 0;
+              margin-right: 0;
+            }
+          }
+        }
+        
+        .tag-with-label {
+          flex-direction: row;
+          align-items: center;
+          gap: 6px;
+        }
+      }
+    }
+    
+    &.rtl {
+      .operational-profit-margin-container {
+        .operational-profit-row {
+          flex-direction: column;
+          align-items: flex-start;
+          
+          .positive-tag, .negative-tag {
+            flex-direction: row-reverse;
+          }
+          
+          > div, > span {
+            margin: 2px 0;
+          }
+        }
+      }
+      
+      .metrics-container {
+        .tag-with-label {
+          flex-direction: row-reverse;
+        }
+        
+        .sales-range-container {
+          flex-direction: row-reverse;
+          
+          .sales-range-label {
+            margin-right: 6px;
+            margin-left: 0;
+          }
+        }
+        
+        .zero-percentage-container {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+}
+
+[data-theme="dark"] body .card {
+  background-color: var(--card-bg-color, #1e2133);
+  box-shadow: none;
+  
+  &:hover {
+    box-shadow: none;
+  }
+  
+  .metrics-container {
+    .positive-tag, .negative-tag, .zero-percentage-tag, .average-tag {
+      background-color: rgba(30, 33, 51, 0.4);
+    }
+  }
+} 
